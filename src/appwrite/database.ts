@@ -1,7 +1,7 @@
 import { databases } from "./config";
 import { ID } from "appwrite";
 import conf from "@/conf/config";
-import { CartType, NewDesignOrderCollection } from "@/utils/types";
+import { ExistingDesignOrderCollection, NewDesignOrderCollection } from "@/utils/types";
 
 
 export class DatabaseService {
@@ -14,7 +14,7 @@ export class DatabaseService {
         }
     }
 
-    async orderExisitingDesignShoe(order: CartType) {
+    async orderExisitingDesignShoe(order: ExistingDesignOrderCollection) {
         try {
             await databases.createDocument(conf.ordersDbId, conf.existingDesignOrderCollectionId, ID.unique(), order)
             return { message: "Successfully placed the order!" }

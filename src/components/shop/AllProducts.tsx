@@ -27,7 +27,7 @@ export default function AllProducts() {
 
     return (
         <div className="mx-auto p-8 w-full max-w-6xl">
-            <h1 className="bg-black text-white p-4 text-3xl md:text-5xl text-center font-bold">Shop from existing design... 👟</h1>
+            <h1 className="rounded bg-black text-white p-4 text-3xl md:text-5xl text-center font-bold">Shop from existing design... 👟</h1>
             {loading ? <img src="/Loader.gif" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" /> : (
                 <div className="mt-3 w-full flex justify-evenly items-center gap-12 flex-wrap">
                     {products.map((product, i) => (

@@ -1,14 +1,14 @@
 export type CartItem = {
-    pId: string,
-    price: number,
+    id: string,
     quantity: number,
     size: number,
+    price: number,
+    imageSrc: string
 }
 
-export type CartType = {
+export type ExistingDesignOrderCollection = {
     email: string,
     productIds: Array<string>,
-    price: Array<number>,
     quantity: Array<number>,
     size: Array<number>,
     address: string,

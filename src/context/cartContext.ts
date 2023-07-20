@@ -1,23 +1,15 @@
-import { CartItem, CartType } from "@/utils/types";
+import { CartItem } from "@/utils/types";
 import { createContext } from "react";
 
 export const CartContext = createContext<{
-    cart: CartType;
+    cart: Array<CartItem>;
     total: number;
     toggleCart: () => void;
     addToCart: (item: CartItem) => void;
     removeFromCart: (index: number) => void;
     updateCart: (index: number, item: CartItem) => void;
 }>({
-    cart: {
-        email: "",
-        productIds: [],
-        price: [],
-        quantity: [],
-        size: [],
-        address: "",
-        message: "",
-    },
+    cart: [],
     total: 0,
     toggleCart: () => { },
     addToCart: () => { },
