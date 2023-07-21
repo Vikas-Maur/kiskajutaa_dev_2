@@ -40,7 +40,7 @@ export default function Navbar() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="font-semibold text-gray-800 hover:text-gray-950"
+                  className="text-sm font-semibold text-gray-800 hover:text-gray-950"
                 >
                   {item.name}
                 </Link>
@@ -69,7 +69,7 @@ export default function Navbar() {
             onClick={() => setUserDialog((value) => !value)}
             className="border-none text-black rounded-full bg-gray-100 p-2"
           >
-            <User />
+            {authStatus? <User />: <LogIn width={24} height={24} />}
           </button>
         </div>
         {menuDialog && (
@@ -139,8 +139,8 @@ export default function Navbar() {
                 </>
               ) : (
                 <>
-                  <Link onClick={() => { setUserDialog((value) => !value) }} href="/login"><div className="rounded border-b text-blue-500 px-8 py-2 transition-all hover:bg-black hover:text-white flex items-center justify-between gap-6"><p>Sign In</p><LogIn width={20} height={20} /></div></Link>
-                  <Link onClick={() => { setUserDialog((value) => !value) }} href="/signup"><div className="rounded  text-blue-500 px-8 py-2 transition-all hover:bg-black hover:text-white flex items-center justify-between gap-6"><p>Sign Up</p><LogIn width={20} height={20} /></div></Link>
+                  <Link onClick={() => { setUserDialog((value) => !value) }} href="/login"><div className="rounded border-b text-blue-500 px-8 py-2 transition-all hover:bg-black hover:text-white flex items-center justify-between gap-6"><p>Sign In</p></div></Link>
+                  <Link onClick={() => { setUserDialog((value) => !value) }} href="/signup"><div className="rounded  text-blue-500 px-8 py-2 transition-all hover:bg-black hover:text-white flex items-center justify-between gap-6"><p>Sign Up</p></div></Link>
                 </>
               )}
             </div>

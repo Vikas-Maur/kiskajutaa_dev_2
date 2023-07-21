@@ -49,29 +49,32 @@ export default function PageLayout({
     const removeFromCart = (index: number) => {
         const toastId = toast.loading('Removing the item...')
 
-        console.log(total, cart[index].price * cart[index].quantity, total - cart[index].price * cart[index].quantity);
-
         setTotal((prev) => (prev - cart[index].price * cart[index].quantity))
         setCart((prev) => [...prev.slice(0, index), ...prev.slice(index + 1)])
 
         toast.success('Successfully removed the item from the cart!', { id: toastId })
     }
-    const updateCart = (index: number, item: CartItem) => { }
+    const updateCart = (index: number, item: CartItem) => {
+        setTotal((prev) => (prev - cart[index].price * cart[index].quantity + item.price * item.quantity))
+        setCart((prev) => [...prev.slice(0, index), item, ...prev.slice(index + 1)])
+     }
 
     useEffect(() => {
         authService.isLoggedIn().then(setAuthStatus).finally(() => setLoader(false))
-        let localCart:any = localStorage.getItem('cart') 
-        if(!localCart) return
-        let localTotal:number = 0;
         try {
-            localCart = JSON.parse(localCart)
+            const localCart:Array<CartItem> = JSON.parse(localStorage.getItem('cart') || '[]')
+            let localTotal:number = 0;
+            if(!Array.isArray(localCart) || localCart.length===0) {
+                localStorage.clear()
+                return
+            }
             setCart(localCart)
             localCart.forEach((item: any) => {
                 localTotal += item.price * item.quantity
             })
             setTotal(localTotal)
         } catch (error) {
-            console.error(error)
+            console.error('I am an error! beware of me\n',error)
             localStorage.clear()
         }
     }, [])

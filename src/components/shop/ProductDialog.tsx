@@ -29,7 +29,7 @@ const ProductDialog: React.FC<Props> = ({ product, index, toggleProduct }) => {
     }
     return (
         <Dialog toggleFunction={toggleProduct}>
-            <div className="max-h-full max-w-full p-8 rounded overflow-auto bg-white shadow-2xl z-50">
+            <div className="max-h-full max-w-5xl p-8 rounded overflow-auto ">
                 <div className="flex justify-between items-center gap-8">
                     <h3 className="text-2xl font-bold text-gray-900">Product</h3>
                     <button onClick={toggleProduct} className="block rounded p-2 hover:bg-gray-100"><X /></button>
@@ -72,7 +72,6 @@ const ProductDialog: React.FC<Props> = ({ product, index, toggleProduct }) => {
                     </div>
                 </div>
             </div>
-
         </Dialog>
     )
 }

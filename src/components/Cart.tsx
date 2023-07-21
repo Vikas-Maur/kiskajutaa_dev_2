@@ -5,11 +5,21 @@ import { X, Heart, Trash } from 'lucide-react'
 import useCart from '@/context/useCart'
 import Link from 'next/link'
 import Image from 'next/image'
+import { CartItem } from '@/utils/types'
 
 const Cart: React.FC = () => {
-    const { cart, total, toggleCart, removeFromCart } = useCart()
-    console.log('Cart component:', cart);
-    
+    const { cart, total, updateCart, toggleCart, removeFromCart } = useCart()
+
+    const minusProduct = (index: number, product: CartItem) => {
+        if (product.quantity - 1 === 0) {
+            removeFromCart(index)
+        } else { updateCart(index, { ...product, quantity: product.quantity - 1 }) }
+
+    }
+    const plusProduct = (index: number, product: CartItem) => {
+        updateCart(index, { ...product, quantity: product.quantity + 1 })
+    }
+
     return (
         <Dialog toggleFunction={toggleCart}>
             <div className="z-50 bg-white p-6 rounded shadow-2xl md:w-fit max-w-full max-h-full overflow-auto">
@@ -41,7 +51,7 @@ const Cart: React.FC = () => {
                                                 <div>
                                                     <div className="flex justify-between">
                                                         <h3 className="text-sm">
-                                                            <Link href={`/shop/${product.id}`} className="font-semibold text-black">
+                                                            <Link onClick={toggleCart} href={`/shop/${product.id}`} className="font-semibold text-black">
                                                                 {`Your Jutaa #${index + 1}`}
                                                             </Link>
                                                         </h3>
@@ -60,15 +70,16 @@ const Cart: React.FC = () => {
                                     </li>
                                     <div className="mb-2 flex">
                                         <div className="min-w-24 flex">
-                                            <button type="button" className="h-7 w-7">
+                                            <button onClick={() => minusProduct(index, product)} type="button" className="h-7 w-7">
                                                 -
                                             </button>
                                             <input
                                                 type="text"
                                                 className="mx-1 h-7 w-9 rounded-md border text-center"
-                                                defaultValue={product.quantity}
+                                                value={product.quantity}
+                                                disabled
                                             />
-                                            <button type="button" className="flex h-7 w-7 items-center justify-center">
+                                            <button onClick={() => plusProduct(index, product)} type="button" className="flex h-7 w-7 items-center justify-center">
                                                 +
                                             </button>
                                         </div>

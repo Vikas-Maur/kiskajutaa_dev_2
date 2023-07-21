@@ -10,7 +10,7 @@ export default function AllProducts() {
     const [curProd, setCurProd] = useState<number>(0)
     const [showingOneProd, setShowingOneProd] = useState<boolean>(false)
 
-    const toggleProduct = () => setShowingOneProd((prev) => !prev) 
+    const toggleProduct = () => setShowingOneProd((prev) => !prev)
     const displayProduct = (index: number) => {
         setCurProd(index)
         toggleProduct()
@@ -24,7 +24,6 @@ export default function AllProducts() {
             setLoading(false)
         })()
     }, [])
-
     return (
         <div className="mx-auto p-8 w-full max-w-6xl">
             <h1 className="rounded bg-black text-white p-4 text-3xl md:text-5xl text-center font-bold">Shop from existing design... 👟</h1>
