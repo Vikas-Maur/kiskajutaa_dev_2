@@ -44,7 +44,7 @@ export default function ThirdSection() {
             </div>
             <Link
                 href="/shop"
-                className="hidden lg:flex w-fit ml-auto items-center rounded-md px-6 py-4 font-semibold hover:bg-black hover:text-white"
+                className="hidden transition lg:flex w-fit ml-auto items-center rounded-md px-6 py-4 font-semibold hover:bg-black hover:text-white"
             >
                 Explore More
                 <ArrowRight className="ml-2 h-4 w-4" />

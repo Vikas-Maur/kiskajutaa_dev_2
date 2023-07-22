@@ -8,9 +8,12 @@ export type CartItem = {
 
 export type ExistingDesignOrderCollection = {
     email: string,
-    productIds: Array<string>,
+    fullname: string,
+    productid: Array<string>,
     quantity: Array<number>,
     size: Array<number>,
+    price: Array<number>,
+    imageSrc: Array<string>,
     address: string,
     message: string,
 }
@@ -22,4 +25,12 @@ export type NewDesignOrderCollection = {
     address: string,
     message: string,
     imageSrc: string
+}
+
+export type Address = {
+    fullname: string,
+    address: string,
+    city: string,
+    state: string,
+    pincode: string
 }

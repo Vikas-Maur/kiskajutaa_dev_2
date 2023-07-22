@@ -9,7 +9,7 @@ const exo_2 = Exo_2({
 
 export default function FirstSection() {
     return (
-        <section className="h-screen px-4 py-2 sm:px-6 lg:px-8">
+        <section className="max-h-screen px-4 py-2 sm:px-6 lg:px-8 mb-10">
             <div className="max-w-7xl mx-auto">
                 <h1 className={"font-bold text-5xl lg:text-6xl text-center mt-2 " + exo_2.className}>Step into your own style with custom fit shoes</h1>
                 <div className='flex justify-center gap-6 mt-6'>

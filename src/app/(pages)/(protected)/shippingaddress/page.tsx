@@ -1,3 +1,13 @@
-export default function ShippingAddress(){
-    return <h1>Shipping address</h1>
+import React from "react"
+import ShippingForm from "@/components/checkout/ShippingForm"
+
+const ShippingAddress: React.FC = () => {
+    return (
+        <section>
+            <ShippingForm />
+        </section>
+    )
 }
+
+
+export default ShippingAddress

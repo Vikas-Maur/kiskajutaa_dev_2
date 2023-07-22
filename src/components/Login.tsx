@@ -36,7 +36,7 @@ export default function Login() {
 
     return (
         <div className="flex w-full justify-center overflow-hidden">
-            <div className="w-full max-w-lg rounded-xl p-12 z-10 bg-white shadow-2xl backdrop-filter backdrop-blur-lg bg-opacity-30">
+            <div className="w-full max-w-lg rounded-xl px-12 py-6 border bg-gray-100">
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[60px]">
                         <Footprints width={60} height={60}/>
@@ -63,7 +63,7 @@ export default function Login() {
                             </label>
                             <div className="mt-2">
                                 <input
-                                    className="flex text-gray-300 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="flex text-black h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                                     type="email"
                                     value={formData.email}
                                     onChange={(e) =>
@@ -83,7 +83,7 @@ export default function Login() {
                             </div>
                             <div className="mt-2">
                                 <input
-                                    className="flex text-gray-300 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="flex text-black h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                                     type="password"
                                     placeholder="Password"
                                     value={formData.password}

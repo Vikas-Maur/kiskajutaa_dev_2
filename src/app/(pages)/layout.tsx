@@ -10,7 +10,7 @@ import Footer from "@/components/Footer"
 import Cart from "@/components/Cart"
 import { Toaster, toast } from "react-hot-toast"
 
-import { CartItem } from "@/utils/types"
+import { CartItem, Address } from "@/utils/types"
 
 export default function PageLayout({
     children,
@@ -20,13 +20,7 @@ export default function PageLayout({
 
     const [loader, setLoader] = useState(true);
     const [authStatus, setAuthStatus] = useState(false)
-    const [address, setAddress] = useState<{
-        fullname: string,
-        address: string,
-        city: string,
-        state: string,
-        pincode: string
-    }>({
+    const [address, setAddress] = useState<Address>({
         fullname: "",
         address: "",
         city: "",

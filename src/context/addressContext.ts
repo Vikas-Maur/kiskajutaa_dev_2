@@ -1,16 +1,9 @@
 import { createContext } from "react";
-
-type Address = {
-    fullname: string,
-    address: string,
-    city: string,
-    state: string,
-    pincode: string
-}
+import { Address } from "@/utils/types";
 
 export const AddressContext = createContext<{
     address: Address;
-    setAddress: (address: Address) => void;
+    setAddress: (address: any) => void;
 }>({
     address: {
         fullname: "",
