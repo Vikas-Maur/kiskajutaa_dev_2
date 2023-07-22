@@ -9,6 +9,7 @@ const conf = {
     newDesignBucketId: String(process.env.NEXT_PUBLIC_APPWRITE_NEW_DESIGNS_BUCKET_ID),
     existingDesignBucketId: String(process.env.NEXT_PUBLIC_APPWRITE_EXISTING_DESIGNS_BUCKET_ID),
     verifyRedirectUrl: String(process.env.NEXT_PUBLIC_VERIFY_REDIRECT_URL),
+    kiskajutaaTeamId: String(process.env.NEXT_PUBLIC_APPWRITE_KISKAJUTAA_TEAM_ID),
 }
 
 export default conf

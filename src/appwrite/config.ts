@@ -1,15 +1,18 @@
 import conf from "@/conf/config";
-import {Client, Account, Databases, Storage} from 'appwrite'
+import { Client, Account, Databases, Storage, Teams } from 'appwrite';
 
-export const client = new Client()
+export const client = new Client();
 
-client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId)
+client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
 
 // auth
-export const account = new Account(client)
+export const account = new Account(client);
 
 // database
 export const databases = new Databases(client);
 
 // storage 
 export const storage = new Storage(client);
+
+// teams
+export const teams = new Teams(client);

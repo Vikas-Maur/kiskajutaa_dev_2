@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 
 export default function AnimatedDisplay() {
     return (
-        <div className="relative mt-16 overflow-hidden">
+        <div className="relative mt-20 lg:mt-16 overflow-hidden">
             <div className="flex justify-between items-center gap-8">
                 <div className="hidden lg:block bg-black w-24 h-24 shadow-2xl rounded">
                     <img src="/images/shoe-4.png" alt="Shoe" className="object-cover" />

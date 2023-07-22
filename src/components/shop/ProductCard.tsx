@@ -12,7 +12,7 @@ type Props = {
 }
 
 const ProductCard: React.FC<Props> = ({ id }) => {
-    const { addToCart } = useCart()
+    const { addToCart, toggleCart } = useCart()
     const [item, setItem] = useState<CartItem>({
         id: id,
         quantity: 1,
@@ -26,6 +26,7 @@ const ProductCard: React.FC<Props> = ({ id }) => {
     const submittingForm = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         addToCart(item)
+        toggleCart()
     }
 
     useEffect(() => {

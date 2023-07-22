@@ -31,7 +31,7 @@ export default function ProfileCard (){
             <>
                 <div className="flex gap-y-6 flex-wrap">
                     <div className="flex w-full gap-x-4 items-center">
-                        <div className="shrink-0 w-fit h-fit rounded-full p-2 bg-black text-white shadow-2xl">
+                        <div className="ml-4 shrink-0 w-fit h-fit rounded-full p-2 bg-black text-white shadow-2xl">
                             <User width={50} height={50} />
                         </div>
                         <div className="relative">
@@ -63,7 +63,6 @@ export default function ProfileCard (){
                         >
                             Logout
                         </button>
-                        <img src="https://cloud.appwrite.io/v1/storage/buckets/6486a1266ab33e305cef/files/unique()/view?project=64869d7c5a6beb297c66" alt="Image" />
                     </div>
                 </div>
             </>

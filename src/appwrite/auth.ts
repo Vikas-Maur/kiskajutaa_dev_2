@@ -1,5 +1,5 @@
-import { account } from "./config";
-import { ID } from "appwrite";
+import { account, teams } from "./config";
+import { ID, Query } from "appwrite";
 import conf from "@/conf/config";
 
 type CreateUserAccount = {
@@ -79,6 +79,16 @@ export class AuthService {
         } catch (error) {
             throw error
         }
+    }
+
+    async isKiskaJutaaTeam(): Promise<boolean>{
+        try {
+            const data = await this.getCurrentUser()
+            const fetchTeamsResults = await teams.listMemberships(conf.kiskajutaaTeamId, [Query.equal('userId', data?.$id || '')])
+            return fetchTeamsResults.total>0
+
+        } catch (error) {}
+        return false
     }
     
 }
