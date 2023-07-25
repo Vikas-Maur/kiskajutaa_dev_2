@@ -3,18 +3,17 @@ import databaseService from "./database";
 import { ID } from "appwrite";
 import conf from "@/conf/config";
 
-export class StorageService{
-    async uploadNewDesignFile(file: File){
+export class StorageService {
+    async uploadNewDesignFile(file: File) {
         try {
-            const id = ID.unique()
-            await storage.createFile(conf.newDesignBucketId, id, file)
-            return {imageId: id, imageSrc: await this.readNewDesignFile(id)}
+            const response = await storage.createFile(conf.newDesignBucketId, ID.unique(), file)
+            return { imageId: response.$id, imageSrc: await this.readNewDesignFile(response.$id) }
         } catch (error) {
             throw error
         }
     }
 
-    async readNewDesignFile(id: string){
+    async readNewDesignFile(id: string) {
         try {
             return storage.getFileView(conf.newDesignBucketId, id).href
         } catch (error) {
@@ -22,7 +21,7 @@ export class StorageService{
         }
     }
 
-    async readExistingDesignFile(id: string){
+    async readExistingDesignFile(id: string) {
         try {
             return storage.getFileView(conf.existingDesignBucketId, id).href
         } catch (error) {
@@ -30,18 +29,18 @@ export class StorageService{
         }
     }
 
-    async readAllExisitngDesignFiles(){
+    async readAllExisitngDesignFiles() {
         try {
             return await storage.listFiles(conf.existingDesignBucketId)
         } catch (error) {
-            throw error   
+            throw error
         }
     }
 
-    async readProductImage(productId: string){
+    async readProductImage(productId: string) {
         try {
             const document = await databaseService.readProduct(productId)
-            if(!document) return null
+            if (!document) return null
             return await this.readExistingDesignFile(document.image)
         } catch (error) {
             throw error

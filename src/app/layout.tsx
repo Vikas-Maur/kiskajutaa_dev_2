@@ -1,6 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import {Poppins} from "next/font/google"
+import { Poppins } from "next/font/google"
+
+import { client } from '@/appwrite/config'
 
 export const metadata: Metadata = {
   title: 'Kiska.Jutaa',
@@ -17,6 +19,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  
   return (
     <html lang="en">
       <body className={'max-w-screen overflow-x-hidden ' + poppins.className}>{children}</body>

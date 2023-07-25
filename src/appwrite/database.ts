@@ -1,8 +1,7 @@
 import { databases } from "./config";
-import { ID } from "appwrite";
+import { ID, Models } from "appwrite";
 import conf from "@/conf/config";
 import { ExistingDesignOrderCollection, NewDesignOrderCollection } from "@/utils/types";
-
 
 export class DatabaseService {
     async orderNewDesignShoe(order: NewDesignOrderCollection) {
@@ -23,29 +22,56 @@ export class DatabaseService {
         }
     }
 
-    async readOrders(email: string) {
+    async readAllNewDesignOrders() {
         try {
-            return { newDesignOrders: await databases.listDocuments(conf.ordersDbId, conf.newDesignOrderCollectionId), exisitingDesignOrders:  databases.listDocuments(conf.ordersDbId, conf.existingDesignOrderCollectionId)}
+            return await databases.listDocuments(conf.ordersDbId, conf.newDesignOrderCollectionId)
         } catch (error) {
-            console.log("readOrders error:", error)
+            console.log("readNewDesignOrders error:", error)
         }
         return null
     }
 
-    async readProduct(productId: string){
+    async readAllExistingDesignOrders() {
+        try {
+            return await databases.listDocuments(conf.ordersDbId, conf.existingDesignOrderCollectionId)
+        } catch (error) {
+            console.log("readExistingDesignOrders error:", error)
+        }
+        return null
+    }
+
+    async readProduct(productId: string) {
         try {
             return await databases.getDocument(conf.productsDbId, conf.productCollectionId, productId)
         } catch (error) {
             console.log("readProduct error: ", error);
         }
         return null
-    }    
+    }
 
-    async readAllProducts(){
+    async readAllProducts() {
         try {
             return await databases.listDocuments(conf.productsDbId, conf.productCollectionId)
         } catch (error) {
-            console.log("readProduct error: ", error);   
+            console.log("readProduct error: ", error);
+        }
+        return null
+    }
+
+    async updateNewDesignOrder(id: string, data?: Partial<Omit<Models.Document, keyof Models.Document>>) {
+        try {
+            return await databases.updateDocument(conf.ordersDbId, conf.newDesignOrderCollectionId, id, data)
+        } catch (error) {
+            throw error
+        }
+        return null
+    }
+
+    async updateExistingDesignOrder(id: string, data?: Partial<Omit<Models.Document, keyof Models.Document>>) {
+        try {
+            return await databases.updateDocument(conf.ordersDbId, conf.existingDesignOrderCollectionId, id, data)
+        } catch (error) {
+            throw error
         }
         return null
     }
@@ -54,4 +80,3 @@ export class DatabaseService {
 const databaseService = new DatabaseService()
 
 export default databaseService
-

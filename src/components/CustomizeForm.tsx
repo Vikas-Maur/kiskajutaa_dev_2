@@ -36,7 +36,7 @@ export default function CustomizeForm() {
             toast.error("Please select a design file first! :(")
             return
         }
-        if (address==='' || pincode==='' || city==='' || state===''){
+        if (address === '' || pincode === '' || city === '' || state === '') {
             toast.error('Please enter all the details propery...')
             return
         }

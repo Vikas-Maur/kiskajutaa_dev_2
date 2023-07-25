@@ -1,5 +1,5 @@
 import conf from "@/conf/config";
-import { Client, Account, Databases, Storage, Teams } from 'appwrite';
+import { Client, Account, Databases, Storage, Teams, Avatars } from 'appwrite';
 
 export const client = new Client();
 
@@ -16,3 +16,6 @@ export const storage = new Storage(client);
 
 // teams
 export const teams = new Teams(client);
+
+// avatar
+export const avatars = new Avatars(client)
